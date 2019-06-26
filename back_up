@@ -1,0 +1,19 @@
+# Config file
+
+[database]
+userdb = pstgr
+passwdb = 12321
+host_ip = 172.17.0.2
+datetime = 2019-06-24 13:36
+
+# This is a comment
+
+[profile]
+param = value
+user = userdb
+passw_int = 123456
+mesure_float  = 2424.24
+mail = database_db@user.com # Comment in line
+
+[new_conf]
+name = alfalfa
