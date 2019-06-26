@@ -1,3 +1,3 @@
-# from parsini.parsini import Parsini
+from parsini.parsini import Parsini
 
 name = "parsini"
