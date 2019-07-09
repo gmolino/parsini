@@ -17,14 +17,14 @@ print(config.get_rawlist())
 
 # prepara archivo de configuración sector, param, value
 config.set_param('database','user', 'alvaro')
-config.set_param('database','passwdb', 12321)
+config.set_param('database','host_ip2','172.17.0.12')
 
 # crea parámetros nuevos para fichero de configuracion
 config.create_param('profile','param', 'value')
 config.create_param('new_conf','name', 'name')
 
 # salva fichero de configuración con los nuevos valores
-config.write('back_up')
+config.write()
 
 # get valores de configuracion en lista raw del file
 print(config.get_confidict())

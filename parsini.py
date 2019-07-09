@@ -55,8 +55,9 @@ class Parsini:
 
         section_flag= False
         for i in range(len(self.rawfile)):
-            if section in self.rawfile[i]: section_flag= True
-            if section_flag== True:
+            print(self.rawfile[i], section)
+            if "[{}]".format(section) in self.rawfile[i]: section_flag= True
+            if section_flag== True and self.rawfile[i].split('=')[0].strip()==name:
                 self.rawfile[i]= self.rawfile[i].replace(str(old_value), str(new_value))
 
         #actulizar el dict
@@ -70,11 +71,13 @@ class Parsini:
             self.config_dict[section]={}
             self.rawfile.append('\n['+section+']\n')
 
-        self.config_dict[section].update([(name , value)])
+        if not self.config_dict.get(section).get(name):
 
-        for i, l in list(enumerate(self.rawfile)):
-            if '['+section+']' in l:
-                self.rawfile.insert(i+1, name+" = {}\n".format(value))
+            self.config_dict[section].update([(name , value)])
+
+            for i, l in list(enumerate(self.rawfile)):
+                if '['+section+']' in l:
+                    self.rawfile.insert(i+1, name+" = {}\n".format(value))
 
 
     def write(self, config_file= None):
