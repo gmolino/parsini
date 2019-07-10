@@ -11,7 +11,6 @@ class Parsini:
     def read(self, reload=True):
         # create list
         if reload:
-            self.configfile= configfile
             self.rawfile= []
             self.config_dict= {}
 
