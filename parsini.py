@@ -8,8 +8,13 @@ class Parsini:
         self.config_dict= {}
 
 
-    def read(self):
+    def read(self, reload=True):
         # create list
+        if reload:
+            self.configfile= configfile
+            self.rawfile= []
+            self.config_dict= {}
+
         with open(self.configfile) as filec:
             for filel in filec:
                 self.rawfile.append(filel)
@@ -55,7 +60,6 @@ class Parsini:
 
         section_flag= False
         for i in range(len(self.rawfile)):
-            print(self.rawfile[i], section)
             if "[{}]".format(section) in self.rawfile[i]: section_flag= True
             if section_flag== True and self.rawfile[i].split('=')[0].strip()==name:
                 self.rawfile[i]= self.rawfile[i].replace(str(old_value), str(new_value))
