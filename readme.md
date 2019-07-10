@@ -49,8 +49,8 @@ mail = database_db@user.com # Comment in line
 
 `class parsini('config_file')`
 
-> `.read()`     
-> Recoge los parámetros y valores agrupados por sensores del fichero de configuracionn.
+> `.read(reload=True)`     
+> Recoge los parámetros y valores agrupados por sensores del fichero de configuracion. *reload*: recarga variables en caso de varias instacias, por defecto True.
 >
 > `.get_param('sector', 'parametro')`   
 > Devuelve el valor relativo al parámetro y sector .
